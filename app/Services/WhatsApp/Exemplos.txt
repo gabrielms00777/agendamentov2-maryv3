@@ -1,0 +1,56 @@
+use App\Services\WhatsAppService;
+
+// Envio simples de texto
+$whatsapp = new WhatsAppService(); // Usa o provider padrão
+$response = $whatsapp->sendText(
+    '11999999999', 
+    'Seu agendamento foi confirmado para 20/05 às 14:00'
+);
+
+// Ou especificando o provider
+$response = $whatsapp->sendText(
+    '11999999999', 
+    'Seu agendamento foi confirmado para 20/05 às 14:00',
+    'evolution' // Provider específico
+);
+
+use App\Services\WhatsAppService;
+
+$whatsapp = new WhatsAppService();
+
+$response = $whatsapp->sendList('11999999999', [
+    'title' => 'Escolha um horário',
+    'description' => 'Selecione um dos horários disponíveis:',
+    'button_text' => 'Ver horários',
+    'sections' => [
+        [
+            'title' => 'Manhã',
+            'rows' => [
+                ['id' => '1', 'title' => '08:00', 'description' => 'Disponível'],
+                ['id' => '2', 'title' => '09:00', 'description' => 'Disponível'],
+            ]
+        ],
+        [
+            'title' => 'Tarde',
+            'rows' => [
+                ['id' => '3', 'title' => '14:00', 'description' => 'Disponível'],
+                ['id' => '4', 'title' => '15:00', 'description' => 'Disponível'],
+            ]
+        ]
+    ],
+    'footer' => 'Responda com o número do horário desejado'
+]);
+
+use App\Services\WhatsAppService;
+
+$whatsapp = new WhatsAppService();
+
+$response = $whatsapp->sendButtons('11999999999', [
+    'title' => 'Confirmação de Agendamento',
+    'description' => 'Deseja confirmar seu agendamento para 20/05 às 14:00?',
+    'buttons' => [
+        ['id' => 'confirm_1', 'text' => '✅ Confirmar'],
+        ['id' => 'reschedule_1', 'text' => '↩️ Reagendar'],
+    ],
+    'footer' => 'Clique no botão para confirmar'
+]);

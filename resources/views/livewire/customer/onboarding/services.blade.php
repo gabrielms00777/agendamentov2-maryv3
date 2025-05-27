@@ -1,4 +1,3 @@
-{{-- resources/views/livewire/onboarding/services.blade.php --}}
 <div>
     <h2 class="text-xl font-semibold mb-4">1. Cadastre seus serviços</h2>
     <p class="text-gray-600 mb-6">Adicione os serviços que sua empresa oferece</p>
