@@ -10,7 +10,7 @@ class WhatsappNumber extends Model
     /** @use HasFactory<\Database\Factories\WhatsappNumberFactory> */
     use HasFactory;
 
-    protected $fillable = ['number', 'provider', 'api_token', 'status'];
+    protected $fillable = ['company_id', 'number', 'provider', 'api_token', 'status'];
 
     public function company()
     {

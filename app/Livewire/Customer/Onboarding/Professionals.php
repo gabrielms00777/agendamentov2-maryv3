@@ -14,9 +14,12 @@ class Professionals extends Component
 
     public function mount($services)
     {
+        // dd($services);
         $this->availableServices = collect($services)->mapWithKeys(function ($service) {
-            return [$service['name'] => $service['name']];
+            return [$service['id'] => $service['name']];
         })->toArray();
+
+        // dd($this->availableServices);
     }
 
     public function addProfessional()
@@ -33,6 +36,7 @@ class Professionals extends Component
     #[On('requestStepValidation')]
     public function validateAndSend()
     {
+        dd($this->professionals);
         $this->validate([
                 'professionals' => 'required|array|min:1',
                 'professionals.*.name' => 'required|string|min:3',

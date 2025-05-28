@@ -47,11 +47,11 @@
                 @endif
 
                 {{-- Menu Principal --}}
-                <x-menu-item title="Dashboard" icon="o-chart-bar" link="/dashboard" />
+                <x-menu-item title="Dashboard" icon="o-chart-bar" link="/app" />
                 
                 <x-menu-sub title="Agendamentos" icon="o-calendar">
+                    <x-menu-item title="Lista de Agendamentos" icon="o-list-bullet" link="{{ route('appointments.index') }}" />
                     <x-menu-item title="Novo Agendamento" icon="o-plus-circle" link="/appointments/create" />
-                    <x-menu-item title="Lista de Agendamentos" icon="o-list-bullet" link="/appointments" />
                     <x-menu-item title="Bloquear Horários" icon="o-lock-closed" link="/blocked-slots" />
                 </x-menu-sub>
                 

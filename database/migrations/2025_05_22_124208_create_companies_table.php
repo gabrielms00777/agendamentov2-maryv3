@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->integer('appointment_interval')->nullable()->default(30); // minutos
+            $table->boolean('onboarding_completed')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

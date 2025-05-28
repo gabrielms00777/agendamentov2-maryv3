@@ -27,18 +27,18 @@ class Teste extends Command
      */
     public function handle()
     {
-        $whatsapp = new WhatsAppService(); // Usa o provider padrão
-        $response = $whatsapp->sendText(
-            '5516981294778',
-            'Mensagem de teste'
-        );
+        // $whatsapp = new WhatsAppService(); // Usa o provider padrão
+        // $response = $whatsapp->sendText(
+        //     '5516981294778',
+        //     'Mensagem de teste'
+        // );
 
-        // $response = Http::withHeaders([
-        //     'apikey' => env('WHATSAPP_EVOLUTION_API_KEY'),
-        // ])->post("http://evo-swck88o4c8gs4s48g40cos0k.173.249.28.155.sslip.io/message/sendText/Teste", [
-        //     'number' => '5516981294778',
-        //     'text' => 'Testeeee'
-        // ]);
+        $response = Http::withHeaders([
+            'apikey' => env('WHATSAPP_EVOLUTION_API_KEY'),
+        ])->post("http://evo-swck88o4c8gs4s48g40cos0k.173.249.28.155.sslip.io/message/sendText/Teste", [
+            'number' => '5516981294778',
+            'text' => 'Testeeee'
+        ]);
 
         dd($response);
     }

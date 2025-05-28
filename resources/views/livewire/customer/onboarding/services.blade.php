@@ -14,7 +14,7 @@
         <div class="col-span-3">
             <x-input 
                 label="Duração (min)" 
-                wire:model="services.{{ $index }}.duration" 
+                wire:model="services.{{ $index }}.duration_minutes" 
                 type="number" 
             />
         </div>

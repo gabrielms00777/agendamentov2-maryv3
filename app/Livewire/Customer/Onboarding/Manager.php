@@ -11,7 +11,8 @@ use Livewire\Component;
 
 class Manager extends Component
 {
-    public $currentStep = 4;
+    public $currentStep = 1
+    ;
     public $completedSteps = [];
 
     // Dados coletados durante o onboarding

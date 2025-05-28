@@ -16,11 +16,14 @@ class ServiceFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => 'Serviço ' . fake()->word,
-            'duration_minutes' => fake()->randomElement([30, 60, 90]),
-            'price' => fake()->randomFloat(2, 50, 200),
-            'is_active' => true,
+          return [
+            'company_id' => 1,
+            'name' => $this->faker->randomElement([
+                'Corte de Cabelo', 'Coloração', 'Manicure', 'Pedicure', 
+                'Massagem', 'Depilação', 'Maquiagem', 'Barba'
+            ]),
+            'duration_minutes' => $this->faker->numberBetween(30, 120),
+            'price' => $this->faker->numberBetween(30, 200),
         ];
     }
 }

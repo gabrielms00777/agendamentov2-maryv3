@@ -13,7 +13,7 @@ class Company extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'document', 'email', 'phone', 'appointment_interval'
+        'name', 'document', 'email', 'phone', 'appointment_interval', 'onboarding_completed'
     ];
 
     public function whatsappNumbers() {

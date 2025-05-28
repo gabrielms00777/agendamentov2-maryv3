@@ -17,12 +17,12 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'client_name' => fake()->name,
-            'client_phone' => '5511' . fake()->numerify('9########'),
-            'date' => fake()->dateTimeBetween('now', '+1 month')->format('Y-m-d'),
-            'time' => fake()->time('H:i'),
-            'status' => fake()->randomElement(['scheduled', 'confirmed']),
-
+            'client_name' => $this->faker->name,
+            'client_phone' => '55119' . $this->faker->numerify('#######'),
+            'date' => $this->faker->dateTimeBetween('now', '+30 days')->format('Y-m-d'),
+            'time' => $this->faker->time('H:i'),
+            'status' => $this->faker->randomElement(['scheduled', 'confirmed', 'canceled', 'completed']),
+            'notes' => $this->faker->optional(0.3)->sentence,
         ];
     }
 }
