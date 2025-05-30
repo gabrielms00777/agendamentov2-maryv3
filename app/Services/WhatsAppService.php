@@ -64,4 +64,9 @@ class WhatsAppService
             default => throw new InvalidArgumentException("Provedor WhatsApp não suportado: {$provider}"),
         };
     }
+
+    public function registerNumber(string $number, int $company_id)
+    {
+        // return $this->provider->registerNumber($number, $company_id);
+    }
 }

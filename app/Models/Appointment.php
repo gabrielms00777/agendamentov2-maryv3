@@ -22,6 +22,18 @@ class Appointment extends Model
         ];
     }
 
+    public function getStatusBadgeClass()
+    {
+        // return AppointmentStatusEnum::from($this->status)->badgeClass();
+        return match ($this->status) {
+            AppointmentStatusEnum::CONFIRMED->value => 'badge-success',
+            AppointmentStatusEnum::PENDING->value => 'badge-warning',
+            AppointmentStatusEnum::CANCELED->value => 'badge-error',
+            AppointmentStatusEnum::COMPLETED->value => 'badge-info',
+            default => 'badge-secondary',
+        };
+    }
+
     public function professional()
     {
         return $this->belongsTo(Professional::class);

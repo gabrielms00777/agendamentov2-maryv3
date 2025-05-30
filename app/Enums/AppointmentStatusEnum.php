@@ -20,4 +20,14 @@ enum AppointmentStatusEnum: string
             self::COMPLETED => 'Concluído',
         };
     }
+
+    public function badgeClass(): string
+    {
+        return match ($this) {
+            self::CONFIRMED => 'badge-success',
+            self::PENDING => 'badge-warning',
+            self::CANCELED => 'badge-error',
+            self::COMPLETED => 'badge-info',
+        };
+    }
 }
